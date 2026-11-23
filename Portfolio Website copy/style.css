@@ -1,0 +1,729 @@
+/* PAGE STYLING*/
+
+body {
+    background-color: #333333;
+}
+
+
+/*HEADER LAYOUT*/
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    padding: clamp(20px, 3vw, 30px) clamp(20px, 5vw, 60px);
+}
+
+nav {
+    display: flex;
+    gap: clamp(12px, 3vw, 40px);
+}
+
+
+/*LOGO*/
+
+.logo {
+    font-family: "Didot", serif;
+    font-size: clamp(2rem, 4vw, 4rem);
+    color: white;
+    text-decoration: none;
+}
+
+
+/*NAVIGATION LINKS*/
+
+nav a {
+    font-family: "Didot", serif;
+    font-size: clamp(1rem, 2vw, 2rem);
+    color: white;
+    text-decoration: none;
+}
+
+
+/*DROPDOWN LINKS*/
+
+.dropdown-content a {
+    font-family: "Avenir", sans-serif;
+    font-size: 1.5rem;
+    display: block;
+    padding: 5px 0;
+}
+
+
+/*HOVER EFFECTS*/
+
+nav a,
+.logo {
+    transition: color 0.3s ease;
+}
+
+nav a:hover,
+.logo:hover {
+    color: hotpink;
+}
+
+
+/*DROPDOWN MENUS*/
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    background: rgb(35 35 35 / 88%);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 25%);
+    text-align: center;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 5px 0;
+    font-size: clamp(0.85rem, 1.5vw, 1.25rem);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu-content {
+    display: none;
+    position: absolute;
+    z-index: 11;
+    top: -0.5rem;
+    left: 100%;
+    min-width: max-content;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    background: rgb(35 35 35 / 92%);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 25%);
+    text-align: left;
+}
+
+.dropdown-submenu:hover .dropdown-submenu-content,
+.dropdown-submenu:focus-within .dropdown-submenu-content {
+    display: block;
+}
+
+@media (max-width: 800px) {
+    header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) max-content;
+        grid-template-rows: auto auto;
+        align-items: start;
+    }
+
+    header .logo {
+        grid-column: 1;
+        grid-row: 1;
+        white-space: nowrap;
+    }
+
+    header .page-title {
+        grid-column: 1;
+        grid-row: 2;
+        font-size: clamp(1rem, 3.5vw, 1.5rem);
+    }
+
+    header nav {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: center;
+        gap: clamp(0.5rem, 2vw, 1rem);
+    }
+
+    header .dropdown-content {
+        right: 0;
+        left: auto;
+        transform: none;
+        min-width: max-content;
+        max-width: 60vw;
+        text-align: right;
+    }
+
+    header .dropdown:focus-within .dropdown-content {
+        display: block;
+    }
+
+    header .dropdown-submenu-content {
+        right: 100%;
+        left: auto;
+        text-align: right;
+    }
+}
+
+/*PAGE TITLE*/
+
+.page-title {
+    font-family: "Avenir", serif;
+    font-size: 1.5rem;
+    color: hotpink;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.work-page-links {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin: 4rem 60px 4rem 80px;
+}
+
+.work-page-links::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -2rem;
+    width: 2px;
+    background: hotpink;
+    content: "";
+}
+
+.work-page-links a {
+    color: white;
+    font-family: "Didot", serif;
+    font-size: 2rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.work-page-submenu {
+    position: relative;
+}
+
+.work-page-submenu-content {
+    display: none;
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    left: 100%;
+    min-width: max-content;
+    padding-left: clamp(1rem, 3vw, 2rem);
+    flex-direction: column;
+    gap: 1.5rem;
+    transform: translateY(-50%);
+}
+
+.work-page-submenu:hover .work-page-submenu-content,
+.work-page-submenu:focus-within .work-page-submenu-content {
+    display: flex;
+}
+
+.work-page-links a:hover {
+    color: hotpink;
+}
+
+/*Social-Media*/
+
+.social-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    min-width: 0;
+}
+
+.contact-details {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.5rem, 5vw, 4rem);
+    margin: clamp(2rem, 6vw, 4rem) clamp(1rem, 5vw, 60px) 0;
+}
+
+.contact-profile {
+    display: block;
+    width: min(35vw, 400px);
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border: clamp(4px, 0.6vw, 9px) solid hotpink;
+}
+
+@media (max-width: 900px) {
+    .contact-details {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: clamp(1.5rem, 5vw, 2rem);
+    }
+
+    .contact-profile {
+        width: min(100%, 400px);
+    }
+
+    .social-icons {
+        width: 100%;
+    }
+}
+
+.social-icon {
+    bottom: 5vh;
+    right: 5vw;
+
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+
+    color: white;
+    width: 3rem;
+    height: 3rem;
+    fill: currentColor;
+    transition: fill 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: hotpink;
+}
+
+.social-icons a:hover .social-icon {
+    color: hotpink;
+}
+
+.contact-email {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 100%;
+    color: white;
+    font-family: "Avenir", sans-serif;
+    font-size: clamp(1rem, 2.7vw, 1.5rem);
+}
+
+.email-icon {
+    display: block;
+    flex: 0 0 3rem;
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+    filter: invert(1);
+}
+
+.instagram-icon,
+.youtube-icon {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 100%;
+    color: white;
+    font-family: "Avenir", sans-serif;
+    font-size: clamp(1rem, 2.7vw, 1.5rem);
+    text-decoration: none;
+}
+
+.instagram-icon span,
+.youtube-icon span,
+.contact-email span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.social-icon {
+    flex: 0 0 3rem;
+}
+
+.instagram-icon .social-icon {
+    fill: currentColor;
+}
+
+.youtube-icon .social-icon {
+    fill: currentColor;
+}
+
+.social-link:hover {
+    color: hotpink;
+}
+
+/* Net Art*/
+
+a-scene {
+    width: 100%;
+    height: 600px;
+    margin-bottom: 20px;
+}
+
+.videos-page {
+    width: min(100% - 2rem, 1200px);
+    margin: 2rem auto;
+}
+
+.video-embed {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+.video-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/*ARTWORK GRID*/
+
+.artwork-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.artwork-card {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 360px;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.artwork-card img {
+    display: block;
+    width: 100%;
+    height: 360px;
+    object-fit: contain;
+    transition: filter 0.3s ease;
+}
+
+.artwork-card .caption {
+    position: absolute;
+    inset: auto 0 0;
+    padding: 1rem;
+    background: rgb(35 35 35 / 88%);
+    color: white;
+    font-family: "Avenir", sans-serif;
+    font-size: 1rem;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.artwork-card .caption p {
+    margin: 0;
+    font-family: "Avenir", sans-serif;
+}
+
+.artwork-card:hover img,
+.artwork-card:focus-visible img {
+    filter: saturate(1.5) brightness(1.08);
+}
+
+.artwork-card:hover .caption,
+.artwork-card:focus-visible .caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.artwork-card:focus-visible {
+    outline: 2px solid hotpink;
+    outline-offset: 3px;
+}
+
+.artwork-grid-pink-border .artwork-card::before {
+    position: absolute;
+    z-index: 1;
+    inset: 0.5rem;
+    border: 3px solid hotpink;
+    content: "";
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, inset 0.3s ease;
+}
+
+.artwork-grid-pink-border .artwork-card:hover::before,
+.artwork-grid-pink-border .artwork-card:focus-visible::before {
+    inset: 0;
+    opacity: 1;
+}
+
+.artwork-grid-pink-border .artwork-card:hover img,
+.artwork-grid-pink-border .artwork-card:focus-visible img {
+    filter: none;
+}
+
+.artwork-grid-pink-border .artwork-card .caption {
+    z-index: 2;
+}
+
+.artwork-lightbox {
+    position: relative;
+    max-width: min(90vw, 1200px);
+    max-height: 90vh;
+    padding: 2.5rem 1rem 1rem;
+    border: 1px solid hotpink;
+    background: #333333;
+    color: white;
+}
+
+.artwork-lightbox::backdrop {
+    background: rgb(0 0 0 / 85%);
+}
+
+.lightbox-image {
+    display: block;
+    max-width: 85vw;
+    max-height: 75vh;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.lightbox-caption {
+    margin: 1rem 0 0;
+    font-family: "Avenir", sans-serif;
+    text-align: center;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.5rem;
+    border: 0;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.lightbox-close:hover {
+    color: hotpink;
+}
+
+@media (max-width: 800px) {
+    .artwork-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .artwork-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*HOMEPAGE CAROUSEL*/
+
+.carousel {
+    width: 100vw;
+    margin: 2rem calc(50% - 50vw);
+}
+
+.carousel-images {
+    position: relative;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 9170 / 3762;
+}
+
+.carousel-image {
+    display: none;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.carousel-image[aria-hidden="false"] {
+    display: block;
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 0;
+    opacity: 0;
+    pointer-events: none;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    font: inherit;
+    font-size: 3rem;
+    line-height: 1;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.carousel-images:hover .carousel-arrow,
+.carousel-images:focus-within .carousel-arrow {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.carousel-arrow:hover {
+    color: hotpink;
+}
+
+.carousel-arrow-previous {
+    left: 1rem;
+}
+
+.carousel-arrow-next {
+    right: 1rem;
+}
+
+.carousel-dot {
+    border: 1px solid white;
+    background: transparent;
+    cursor: pointer;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    padding: 0;
+}
+
+.carousel-dot[aria-current="true"],
+.carousel-dot:hover {
+    border-color: hotpink;
+}
+
+.carousel-dot[aria-current="true"] {
+    background: hotpink;
+}
+
+.carousel-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.carousel-status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/*CV Page*/
+h2 {
+    font-family: "Didot", serif;
+    font-size: 2rem;
+    color: white;
+    margin: 0;
+    margin-left: 40px;
+}
+
+.cv-title {
+    margin-top: 3rem;
+    margin-left: clamp(1rem, 5vw, 60px);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.cv-page::before,
+.about-page::before {
+    display: block;
+    height: 2px;
+    margin: 2rem clamp(1rem, 5vw, 60px) 0;
+    background: hotpink;
+    content: "";
+}
+
+.cv-content {
+    margin: 2rem clamp(1rem, 5vw, 60px) 4rem;
+    padding-left: clamp(0rem, 3vw, 2rem);
+    color: white;
+    font-family: "Didot", serif;
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    line-height: 1.4;
+}
+
+.cv-section {
+    margin-bottom: 2rem;
+}
+
+.cv-section h3 {
+    margin: 0 0 0.2rem;
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.cv-section p {
+    margin: 0 0 0 clamp(0.75rem, 2vw, 1.4rem);
+}
+
+/*Artist BioPage*/
+.artist-bio {
+    margin-right: clamp(2.5rem, 10vw, 120px);
+    margin-left: clamp(2.5rem, 10vw, 120px);
+    margin-top: clamp(2rem, 5vw, 4rem);
+    margin-bottom: clamp(6rem, 14vw, 12rem);
+    color: white;
+    font-family: "Avenir", sans-serif;
+    font-size: clamp(1rem, 1.6vw, 1.3rem);
+    line-height: 2;
+}
+
+.artist-bio p {
+    margin: 0 0 1rem;
+    text-indent: 2em;
+}
+
+/*Net Art Page*/
+.meditation-dream-link {
+    display:block;
+    color:white;
+    font-size: 1.25rem;
+    text-decoration: none;
+    font-family: avenir, sans-serif;
+    margin-left: 40px;
+    transition: color 0.3s ease;
+}
+
+.meditation-dream-link:hover {
+    color: hotpink;
+}
+
+.meditation-dream-link:active {
+    color: hotpink;
+}
+
+/*Artist Statement Page*/
+.artist-statement {
+    margin-right: clamp(2.5rem, 10vw, 120px);
+    margin-left: clamp(2.5rem, 10vw, 120px);
+    margin-top: clamp(2rem, 5vw, 4rem);
+    margin-bottom: clamp(6rem, 14vw, 12rem);
+    color: white;
+    font-family: "Avenir", sans-serif;
+    font-size: clamp(1rem, 1.6vw, 1.3rem);
+    line-height: 2;
+}
+
+.artist-statement p {
+    margin: 0 0 1rem;
+    text-indent: 2em;
+}

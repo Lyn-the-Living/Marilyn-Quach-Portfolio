@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <link rel="stylesheet" href="style.css">
+</head>
+<body>
+       <header>
+<!--Logo/Homepage link-->
+    <a href="index.html" class="logo">
+        Marilyn Quach
+    </a>
+<!--Page Title-->
+    <h1 class="page-title">2024</h1>
+<!--Navigation Container-->
+    <nav>
+      <!-- work dropdown links--> 
+      <div class="dropdown">
+        <a href="work.html">Work</a>
+        <div class="dropdown-content">
+          <a href="netart.html">Net Art</a>
+          <div class="dropdown-submenu">
+            <a href="paint-and-draw.html">Paint and Draw</a>
+            <div class="dropdown-submenu-content">
+              <a href="work-2026.html">2026</a>
+              <a href="work-2025.html">2025</a>
+              <a href="work-2024.html">2024</a>
+              <a href="work-2023.html">2023</a>
+            </div>
+          </div>
+          <a href="videos.html">Video</a>
+        </div>
+      <!-- about dropdown links-->
+      </div>
+      <div class="dropdown">
+       <a href="about.html">About</a>
+       <div class="dropdown-content">
+          <a href="artist-bio.html">Artist Bio</a>
+          <a href="artist-statement.html">Artist Statement</a>
+          <a href="cv.html">CV</a>
+       </div>
+      </div>
+      <!--contact link-->
+       <a href="contact.html">Contact</a>
+    </nav>
+
+</header>
+
+<main>
+  <section class="artwork-grid artwork-grid-pink-border" aria-label="Artwork from 2024">
+    <a class="artwork-card" href="Images/2024/JamesPortrait.jpg" data-lightbox="artwork-2024" data-title="James Portrait">
+      <img src="Images/2024/JamesPortrait.jpg" alt="James Portrait">
+      <div class="caption"><p>James Portrait</p></div>
+    </a>
+    <a class="artwork-card" href="Images/2024/Selene2024.jpg" data-lightbox="artwork-2024" data-title="Selene, 2024">
+      <img src="Images/2024/Selene2024.jpg" alt="Selene, 2024">
+      <div class="caption"><p>Selene, 2024</p></div>
+    </a>
+    <a class="artwork-card" href="Images/2024/childhoodmirror.jpg" data-lightbox="artwork-2024" data-title="Childhood Mirror">
+      <img src="Images/2024/childhoodmirror.jpg" alt="Childhood Mirror">
+      <div class="caption"><p>Childhood Mirror</p></div>
+    </a>
+    <a class="artwork-card" href="Images/2024/dreamwalk2024.jpg" data-lightbox="artwork-2024" data-title="Dreamwalk, 2024">
+      <img src="Images/2024/dreamwalk2024.jpg" alt="Dreamwalk, 2024">
+      <div class="caption"><p>Dreamwalk, 2024</p></div>
+    </a>
+    <a class="artwork-card" href="Images/2024/self-portrait2024.jpg" data-lightbox="artwork-2024" data-title="Self-Portrait, 2024">
+      <img src="Images/2024/self-portrait2024.jpg" alt="Self-Portrait, 2024">
+      <div class="caption"><p>Self-Portrait, 2024</p></div>
+    </a>
+    <a class="artwork-card" href="Images/2024/untitledportrait2024.jpg" data-lightbox="artwork-2024" data-title="Untitled Portrait, 2024">
+      <img src="Images/2024/untitledportrait2024.jpg" alt="Untitled Portrait, 2024">
+      <div class="caption"><p>Untitled Portrait, 2024</p></div>
+    </a>
+    <a class="artwork-card" href="Images/2024/toothless.jpg" data-lightbox="artwork-2024" data-title="Toothless">
+      <img src="Images/2024/toothless.jpg" alt="Toothless">
+      <div class="caption"><p>Toothless</p></div>
+    </a>
+  </section>
+</main>
+
+<dialog class="artwork-lightbox" aria-label="Enlarged artwork">
+  <button class="lightbox-close" type="button" aria-label="Close enlarged image">&times;</button>
+  <img class="lightbox-image" alt="">
+  <p class="lightbox-caption"></p>
+</dialog>
+
+<script>
+  const lightbox = document.querySelector(".artwork-lightbox");
+  const lightboxImage = lightbox.querySelector(".lightbox-image");
+  const lightboxCaption = lightbox.querySelector(".lightbox-caption");
+
+  document.querySelectorAll(".artwork-card[data-lightbox]").forEach((card) => {
+    card.addEventListener("click", (event) => {
+      event.preventDefault();
+      const image = card.querySelector("img");
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt;
+      lightboxCaption.textContent = card.dataset.title;
+      lightbox.showModal();
+    });
+  });
+
+  lightbox.querySelector(".lightbox-close").addEventListener("click", () => lightbox.close());
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+      lightbox.close();
+    }
+  });
+</script>
+</body>
+</html>
